@@ -1,0 +1,8 @@
+# The purpose of the k3s package is to provide a static binary.  This static
+# linking is intentional, since no dynamic link version is possible.
+k3s: statically-linked-binary usr/sbin/k3s
+# k3s intentionally does not provide manpages for these.
+k3s: no-manual-page usr/sbin/crictl
+k3s: no-manual-page usr/sbin/ctr
+k3s: no-manual-page usr/sbin/k3s
+k3s: no-manual-page usr/sbin/kubectl
