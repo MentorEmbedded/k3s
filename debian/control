@@ -1,0 +1,23 @@
+Source: k3s
+Section: admin
+Priority: optional
+Maintainer: Mentor Embedded <embedded_support@mentor.com>
+Build-Depends: debhelper (>= 11), chrpath, cpio, curl, diffstat, docker.io | docker-ce, gawk, lz4, wget, zstd
+Standards-Version: 4.5.1
+Homepage: https://k3s.io/
+Rules-Requires-Root: no
+
+Package: k3s
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ca-certificates, conntrack-tools, iproute2, ipset, iptables, libc6 (>= 2.37), containerd
+Description: Lightweight Kubernetes client binary (k3s)
+ K3s - Lightweight Kubernetes - is a portable, extensible, open-source
+ platform for managing containerized workloads and services, that
+ facilitates both declarative configuration and automation. It has a
+ large, rapidly growing ecosystem.
+ .
+ K3s is fully compliant with Kubernetes distribution that is packaged as a
+ single binary, providing all dependencies with approximately half the
+ memory footprint of a full Kubernetes implementation and a binary of
+ approximately 100MB in size.
+
