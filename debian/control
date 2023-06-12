@@ -2,7 +2,7 @@ Source: k3s
 Section: admin
 Priority: optional
 Maintainer: Mentor Embedded <embedded_support@mentor.com>
-Build-Depends: debhelper (>= 11), chrpath, cpio, curl, diffstat, docker.io | docker-ce, gawk, lz4, wget, zstd
+Build-Depends: debhelper (>= 11), chrpath, cpio, curl, diffstat, docker.io | docker-ce, gawk, libseccomp-dev, lz4, pkg-config, wget, zstd
 Standards-Version: 4.5.1
 Homepage: https://k3s.io/
 Rules-Requires-Root: no

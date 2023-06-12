@@ -4,14 +4,18 @@
 # export DH_VERBOSE = 1
 # make debhelper commands more verbose
 # export DH_OPTIONS = -v
+export USE_DAPPER ?= 0
 
 %:
 	dh $@
 
+ifeq ($(strip $(USE_DAPPER)),1)
+# Dapper builds require this, regular builds don't
 override_dh_auto_configure:
 	mkdir -p build/data
 	make download
 	make generate
+endif
 
 override_dh_auto_test:
 	@echo Skipping tests
@@ -20,8 +24,16 @@ override_dh_auto_install:
 	mkdir -p debian/k3s/usr/sbin/
 	mkdir -p debian/k3s/etc/rancher/k3s/ 
 	mkdir -p debian/k3s/lib/systemd/system/ 
-	install -m 0755 dist/artifacts/k3s debian/k3s/usr/sbin/ 
-	ln -sf debian/k3s/usr/sbin/k3s debian/k3s/usr/sbin/kubectl 
+	install -m 0755 bin/k3s debian/k3s/usr/sbin/ 
+	ln -sf debian/k3s/usr/sbin/k3s debian/k3s/usr/sbin/containerd
 	ln -sf debian/k3s/usr/sbin/k3s debian/k3s/usr/sbin/crictl 
 	ln -sf debian/k3s/usr/sbin/k3s debian/k3s/usr/sbin/ctr 
+	ln -sf debian/k3s/usr/sbin/k3s debian/k3s/usr/sbin/k3s-agent
+	ln -sf debian/k3s/usr/sbin/k3s debian/k3s/usr/sbin/k3s-certificate
+	ln -sf debian/k3s/usr/sbin/k3s debian/k3s/usr/sbin/k3s-completion
+	ln -sf debian/k3s/usr/sbin/k3s debian/k3s/usr/sbin/k3s-etcd-snapshot
+	ln -sf debian/k3s/usr/sbin/k3s debian/k3s/usr/sbin/k3s-secrets-encrypt
+	ln -sf debian/k3s/usr/sbin/k3s debian/k3s/usr/sbin/k3s-server
+	ln -sf debian/k3s/usr/sbin/k3s debian/k3s/usr/sbin/k3s-token
+	ln -sf debian/k3s/usr/sbin/k3s debian/k3s/usr/sbin/kubectl 
 	install -m 0644 k3s.service debian/k3s/lib/systemd/system/ 
