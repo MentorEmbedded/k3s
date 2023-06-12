@@ -102,7 +102,7 @@ require (
 	github.com/flannel-io/flannel v0.22.0
 	github.com/go-bindata/go-bindata v3.1.2+incompatible
 	github.com/go-sql-driver/mysql v1.6.0
-	github.com/go-test/deep v1.0.7
+	github.com/go-test/deep v1.1.0
 	github.com/google/cadvisor v0.47.1
 	github.com/google/uuid v1.3.0
 	github.com/gorilla/mux v1.8.0
@@ -165,7 +165,6 @@ require (
 )
 
 require (
-	cloud.google.com/go v0.97.0 // indirect
 	github.com/AdaLogics/go-fuzz-headers v0.0.0-20230106234847-43070de90fa1 // indirect
 	github.com/AdamKorcz/go-118-fuzz-build v0.0.0-20221215162035-5330a85ea652 // indirect
 	github.com/Azure/azure-sdk-for-go v55.0.0+incompatible // indirect
@@ -267,7 +266,6 @@ require (
 	github.com/google/gofuzz v1.2.0 // indirect
 	github.com/google/pprof v0.0.0-20210720184732-4bb14d4b1be1 // indirect
 	github.com/google/shlex v0.0.0-20191202100458-e7afc7fbc510 // indirect
-	github.com/googleapis/gax-go/v2 v2.1.1 // indirect
 	github.com/gregjones/httpcache v0.0.0-20180305231024-9cad4c3443a7 // indirect
 	github.com/grpc-ecosystem/go-grpc-middleware v1.3.0 // indirect
 	github.com/grpc-ecosystem/go-grpc-prometheus v1.2.0 // indirect
@@ -388,7 +386,6 @@ require (
 	golang.org/x/tools v0.7.0 // indirect
 	golang.zx2c4.com/wireguard v0.0.0-20220117163742-e0b8f11489c5 // indirect
 	golang.zx2c4.com/wireguard/wgctrl v0.0.0-20211230205640-daad0b7ba671 // indirect
-	google.golang.org/api v0.60.0 // indirect
 	google.golang.org/appengine v1.6.7 // indirect
 	google.golang.org/genproto v0.0.0-20230306155012-7f2fa6fef1f4 // indirect
 	google.golang.org/protobuf v1.29.1 // indirect
