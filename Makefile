@@ -12,7 +12,7 @@ export PATH := $(TOOLPATH)/bin:$(GOROOT)/bin:$(PATH)
 ifeq ($(UNAME),x86_64)
 	ARCH = amd64
 else
-        ifeq ($(UNAME),arm64)
+        ifeq ($(UNAME),aarch64)
 	        ARCH = arm64
         endif
 endif
