@@ -1,3 +1,10 @@
+k3s (1.27.2+k3s1+mel2) UNRELEASED; urgency=medium
+
+  * local package
+  * Correct service file exec locations
+
+ -- Joe MacDonald <joe.macdonald@siemens.com>  Tue, 04 Jul 2023 07:47:19 -0400
+
 k3s (1.27.2+k3s1+mel1) UNRELEASED; urgency=medium
 
   * local package
