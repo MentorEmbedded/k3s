@@ -1,3 +1,9 @@
+k3s (1.27.2+k3s1+mel3) UNRELEASED; urgency=medium
+
+  * Add git to Build-Depends since debian/source/format requires it
+
+ -- Mentor Embedded <embedded_support@mentor.com>  Tue, 11 Jul 2023 07:30:00 +0100
+
 k3s (1.27.2+k3s1+mel2) UNRELEASED; urgency=medium
 
   * local package
