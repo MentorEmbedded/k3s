@@ -1,3 +1,9 @@
+k3s (1.27.2+k3s1+mel4) UNRELEASED; urgency=medium
+
+  * set HOME in rules to allow successful go builds
+
+ -- Joe MacDonald <joe.macdonald@siemens.com>  Fri, 14 Jul 2023 16:06:00 -0400
+
 k3s (1.27.2+k3s1+mel3) UNRELEASED; urgency=medium
 
   * Add git to Build-Depends since debian/source/format requires it

@@ -5,6 +5,11 @@
 # make debhelper commands more verbose
 # export DH_OPTIONS = -v
 export USE_DAPPER ?= 0
+# set HOME since go requires GOCACHE be set and the default ($HOME/.go-cache)
+# will cause a build failure with sbuild.  Setting $HOME to $(CURDIR) is a
+# default solution to this problem for some packages:
+# 	https://lists.debian.org/debian-mentors/2018/08/msg00003.html
+export HOME = $(CURDIR)
 
 %:
 	dh $@
