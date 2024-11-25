@@ -1,6 +1,6 @@
 TARGETS := $(shell ls scripts | grep -v \\.sh)
 GO_FILES ?= $$(find . -name '*.go' | grep -v generated)
-GO_VERSION ?= 1.20.4
+GO_VERSION ?= 1.22.6
 USE_DAPPER ?= 1
 UNAME := $(shell uname -m)
 SHELL = /bin/bash
