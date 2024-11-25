@@ -9,7 +9,7 @@ Rules-Requires-Root: no
 
 Package: k3s
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}, ca-certificates, conntrack-tools, iproute2, ipset, iptables, libc6 (>= 2.37), containerd
+Depends: ${shlibs:Depends}, ${misc:Depends}, ca-certificates, conntrack, iproute2, ipset, iptables, libc6 (>= 2.36), runc, libipset13, containerd
 Description: Lightweight Kubernetes client binary (k3s)
  K3s - Lightweight Kubernetes - is a portable, extensible, open-source
  platform for managing containerized workloads and services, that

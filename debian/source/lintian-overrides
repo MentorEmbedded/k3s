@@ -38,4 +38,4 @@ unsupported-source-format
 # upstream sources aren't part of the git source format
 empty-upstream-sources
 # this is the formatting used by the k3s.io project for their releases
-malformed-debian-changelog-version 1.27.2+k3s1+mel1 (for non-native)
+malformed-debian-changelog-version 1.31.1+k3s1+mel5 (for non-native)
