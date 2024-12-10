@@ -1,0 +1,51 @@
+#!/usr/bin/make -f
+
+# output every command that modifies files on the build system.
+# export DH_VERBOSE = 1
+# make debhelper commands more verbose
+# export DH_OPTIONS = -v
+export USE_DAPPER ?= 0
+# set HOME since go requires GOCACHE be set and the default ($HOME/.go-cache)
+# will cause a build failure with sbuild.  Setting $HOME to $(CURDIR) is a
+# default solution to this problem for some packages:
+# 	https://lists.debian.org/debian-mentors/2018/08/msg00003.html
+export HOME = $(CURDIR)
+# DRONE_TAG is used by dapper, which gets the version from the git tag, 
+# but because dapper is not used in the build process will initialize it
+# here based on the git tag
+DRONE_TAG=v1.31.1+k3s1
+
+%:
+	dh $@
+
+ifeq ($(strip $(USE_DAPPER)),1)
+# Dapper builds require this, regular builds don't
+override_dh_auto_configure:
+	mkdir -p build/data
+	make download
+	make generate
+endif
+
+override_dh_auto_build:
+	dh_auto_build -- DRONE_TAG=$(DRONE_TAG)
+
+override_dh_auto_test:
+	@echo Skipping tests
+
+override_dh_auto_install:
+	mkdir -p debian/k3s/usr/sbin/
+	mkdir -p debian/k3s/etc/rancher/k3s/ 
+	mkdir -p debian/k3s/lib/systemd/system/ 
+	install -m 0755 bin/k3s debian/k3s/usr/sbin/ 
+	ln -sf debian/k3s/usr/sbin/k3s debian/k3s/usr/sbin/containerd
+	ln -sf debian/k3s/usr/sbin/k3s debian/k3s/usr/sbin/crictl 
+	ln -sf debian/k3s/usr/sbin/k3s debian/k3s/usr/sbin/ctr 
+	ln -sf debian/k3s/usr/sbin/k3s debian/k3s/usr/sbin/k3s-agent
+	ln -sf debian/k3s/usr/sbin/k3s debian/k3s/usr/sbin/k3s-certificate
+	ln -sf debian/k3s/usr/sbin/k3s debian/k3s/usr/sbin/k3s-completion
+	ln -sf debian/k3s/usr/sbin/k3s debian/k3s/usr/sbin/k3s-etcd-snapshot
+	ln -sf debian/k3s/usr/sbin/k3s debian/k3s/usr/sbin/k3s-secrets-encrypt
+	ln -sf debian/k3s/usr/sbin/k3s debian/k3s/usr/sbin/k3s-server
+	ln -sf debian/k3s/usr/sbin/k3s debian/k3s/usr/sbin/k3s-token
+	ln -sf debian/k3s/usr/sbin/k3s debian/k3s/usr/sbin/kubectl 
+	install -m 0644 k3s.service debian/k3s/lib/systemd/system/ 

@@ -1,0 +1,3 @@
+usr/sbin/k3s usr/sbin/kubectl
+usr/sbin/k3s usr/sbin/crictl
+usr/sbin/k3s usr/sbin/ctr

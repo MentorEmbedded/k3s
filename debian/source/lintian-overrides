@@ -1,0 +1,41 @@
+# dapper is a build environment used by k3s. It isn't necessary to build the
+# source but the makefile provided by the project assumes it will be used and
+# will download it as part of the preparation step
+source-is-missing .dapper
+# These are tools used by dapper to build k3s within docker containers
+source-is-missing bin/aux/ebtables-legacy
+source-is-missing bin/aux/ebtablesd
+source-is-missing bin/aux/ebtablesu
+source-is-missing bin/aux/xtables-legacy-multi
+source-is-missing bin/aux/xtables-nft-multi
+source-is-missing bin/blkid
+source-is-missing bin/busybox
+source-is-missing bin/cni
+source-is-missing bin/conntrack
+source-is-missing bin/containerd-shim-runc-v2
+source-is-missing bin/coreutils
+source-is-missing bin/ethtool
+source-is-missing bin/find
+source-is-missing bin/fuse-overlayfs
+source-is-missing bin/ip
+source-is-missing bin/ipset
+source-is-missing bin/k3s
+source-is-missing bin/losetup
+source-is-missing bin/nsenter
+source-is-missing bin/pigz
+source-is-missing bin/runc
+source-is-missing bin/slirp4netns
+# this is the output of the full build process, lintian is unable to determine
+# this correctly
+source-is-missing dist/artifacts/k3s
+# the k3s package intentionally provides only a statically linked binary
+package-depends-on-hardcoded-libc k3s Depends
+package-needs-versioned-debhelper-build-depends 11
+# k3s has no Debian maintainer, this is a vendor packaging
+no-nmu-in-changelog
+# we are using the git source format
+unsupported-source-format
+# upstream sources aren't part of the git source format
+empty-upstream-sources
+# this is the formatting used by the k3s.io project for their releases
+malformed-debian-changelog-version 1.31.1+k3s1+mel5 (for non-native)

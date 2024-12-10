@@ -1,0 +1,31 @@
+k3s (1.31.1+k3s1+ind1) UNRELEASED; urgency=medium
+
+  * upgrade k3s
+
+ -- Industrial OS Team <industrial-os@edge.siemens.cloud>  Tue, 10 Dec 2024 13:46:00 +0200
+
+k3s (1.27.2+k3s1+mel4) UNRELEASED; urgency=medium
+
+  * set HOME in rules to allow successful go builds
+
+ -- Industrial OS Team <industrial-os@edge.siemens.cloud>  Fri, 14 Jul 2023 16:06:00 -0400
+
+k3s (1.27.2+k3s1+mel3) UNRELEASED; urgency=medium
+
+  * Add git to Build-Depends since debian/source/format requires it
+
+ -- Industrial OS Team <industrial-os@edge.siemens.cloud>  Tue, 11 Jul 2023 07:30:00 +0100
+
+k3s (1.27.2+k3s1+mel2) UNRELEASED; urgency=medium
+
+  * local package
+  * Correct service file exec locations
+
+ -- Industrial OS Team <industrial-os@edge.siemens.cloud>  Tue, 04 Jul 2023 07:47:19 -0400
+
+k3s (1.27.2+k3s1+mel1) UNRELEASED; urgency=medium
+
+  * local package
+  * Packaging k3s from meta-virtualization for Sokol Linux
+
+ -- Industrial OS Team <industrial-os@edge.siemens.cloud>  Thu, 20 Apr 2023 16:14:13 -0400

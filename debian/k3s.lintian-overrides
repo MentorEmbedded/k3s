@@ -1,0 +1,18 @@
+# The purpose of the k3s package is to provide a static binary.  This static
+# linking is intentional, since no dynamic link version is possible.
+k3s: statically-linked-binary usr/sbin/k3s
+# k3s intentionally does not provide manpages for these.
+k3s: no-manual-page usr/sbin/containerd
+k3s: no-manual-page usr/sbin/crictl
+k3s: no-manual-page usr/sbin/ctr
+k3s: no-manual-page usr/sbin/k3s
+k3s: no-manual-page usr/sbin/k3s-agent
+k3s: no-manual-page usr/sbin/k3s-certificate
+k3s: no-manual-page usr/sbin/k3s-completion
+k3s: no-manual-page usr/sbin/k3s-etcd-snapshot
+k3s: no-manual-page usr/sbin/k3s-secrets-encrypt
+k3s: no-manual-page usr/sbin/k3s-server
+k3s: no-manual-page usr/sbin/k3s-token
+k3s: no-manual-page usr/sbin/kubectl
+# We want to build without PIE, this is intentional
+k3s: hardening-no-pie usr/sbin/k3s
